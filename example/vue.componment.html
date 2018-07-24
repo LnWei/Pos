@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Component</h1>
+<hr>
+<div id="app">
+    <!--<lyweis></lyweis>-->
+    <panda></panda>
+</div>
+<script type="text/javascript">
+
+    // Vue.component('lyweis',{
+    //     template:`<div style="color: red">全局组件</div>`
+    // })
+
+    var app = new Vue ({
+        el: '#app',    //与上边中div的id对上
+        component:{
+            "panda":{
+                template:`<div style="color:red;">局部注册的panda标签</div>`
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HelloWord</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Hello Word</h1>
+    <hr>
+    <div id="app">
+        {{message}}     <!--渲染输出message-->
+    </div>
+    <script type="text/javascript">
+        var app = new Vue ({
+            el: '#app',    //与上边中div的id对上
+            data:{
+                message:'hello word！'
+            }
+        })
+    </script>
+</body>
+</html>

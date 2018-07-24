@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Others</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>v-pre & v-cloak & v-once</h1>
+<hr>
+<div id="app">
+    <!--原样输出-->
+    <div v-pre>{{message}}</div>
+
+    <div v-cloak>渲染完成后才显示</div>
+
+    <!--只进行一次渲染-->
+    <div v-once>{{message}}</div>
+    <div><input type="text" v-model="message"></div>
+    <div>{{message}}</div>
+</div>
+<script type="text/javascript">
+    var app = new Vue ({
+        el: '#app',    //与上边中div的id对上
+        data:{
+            message:'hello word！'
+        }
+    })
+</script>
+</body>
+</html>

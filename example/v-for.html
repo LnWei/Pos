@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>V-for</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>V-for</h1>
+<hr>
+<div id="app">
+    <ul>
+        <!--不能直接输出items-->
+        <li v-for = "item in sortItems">
+            {{item}}
+        </li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for = "(student,index) in sortStudents">
+            {{index + 1}}: {{student.name}} - {{student.age}}
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    var app = new Vue ({
+        //与上边中div的id对上
+        el: '#app',
+
+        data:{
+            items:[5,53,15,20,7,6,62],
+            students:[
+                {name:"Lnw",age:18},
+                {name:"Pa",age:10},
+                {name:"Lyweis",age:23},
+                {name:"Zj",age:17}
+            ]
+        },
+
+        //在输出items之前对items进行操作
+        computed:{
+            //为了保护data中的items的数值，除了赋值操作以外，不能直接对items进行操作
+            sortItems:function () {
+                return this.items.sort(sortNumber);
+            },
+            sortStudents:function () {
+                return sortByKey(this.students,'age');
+            }
+        }
+    });
+
+    function sortNumber(a,b) {
+        return a-b;
+    }
+
+    //数组对象排序方法
+    function sortByKey(arry,key) {
+        return arry.sort(function (a,b) {
+            var x = a[key];
+            var y = b[key];
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        });
+    }
+</script>
+</body>
+</html>

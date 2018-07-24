@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.extend</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Vue.extend</h1>
+<hr>
+<author_01></author_01>
+<div id="author_02"></div>
+
+<script type="text/javascript">
+    var authorExtend = Vue.extend({
+        template:"<p><a :href='authorURL'>{{authorName}}</a></p>",
+        data:function () {
+            return{
+                authorName:'Lyweis',
+                authorURL:"https://www.bilibili.com/"
+            }
+        }
+    });
+
+    //绑定到author
+    new authorExtend().$mount("author_01");
+    //id的绑定
+    new authorExtend().$mount('#author_02');
+
+</script>
+</body>
+</html>

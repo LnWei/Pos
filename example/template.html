@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HelloWord</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Hello Word</h1>
+<hr>
+<div id="app">
+    {{message}}     <!--渲染输出message-->
+</div>
+
+<!--方法二：template标签模板-->
+<template id="method_2">
+    <h2 style="color:blue">方法二：template标签模板</h2>
+</template>
+
+<!--方法三：script模板-->
+<script type="x-template" id="method_3">
+    <h2 style="color:red">方法三：script标签模板</h2>
+</script>
+
+<script type="text/javascript">
+    var app = new Vue ({
+        el: '#app',    //与上边中div的id对上
+        data:{
+            message:'hello word！'
+        },
+
+        // 方法一；选项模板
+        // template:`
+        //     <h2 style="color:red">方法一：选项模板</h2>
+        // `
+
+        // 方法二：template标签模板
+        // template:"#method_2"
+
+        //方法三：script标签模板
+        template:"#method_3"
+    })
+</script>
+</body>
+</html>
